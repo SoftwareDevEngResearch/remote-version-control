@@ -192,7 +192,7 @@
                     <section>
                         <h3>Do this yourself</h3>
                         <br/>
-                        <ul>
+                        <ol>
                             <li class="fragment">
                                 Fork it: at <a href="https://github.com/SoftwareDevEngResearch/analysis_code">SoftwareDevEngResearch/analysis_code</a>, click "Fork"
                             </li>
@@ -211,13 +211,13 @@
                             $ git remote -v
                         </code></pre>
                             </li>
-                        </ul>
+                        </ol>
                     </section>
 
                     <section>
                         <h3>Fetching and merging remote content</h3>
                         <br/>
-                        <ul>
+                        <ol>
                             <li class="fragment"> In your cloned local repo, fetch the upstream repo history:
                                 <pre><code data-trim class="bash">
                                     $ git fetch upstream
@@ -232,31 +232,31 @@
 
                             <li class="fragment"> Look at the changes!
                             </li>
-                        </ul>
+                        </ol>
                     </section>
 
                     <section>
                         <h3>Update your fork</h3>
-                        <ul>
+                        <ol>
                             <li class="fragment"> After merging upstream history, push your work:
                                 <pre><code data-trim class="bash">
                                     $ git push
                                 </code></pre>
                                 (this goes to "origin master")
                             </li>
-                        </ul>
+                        </ol>
 
                         <br/><br/>
 
                         <h3 class="fragment">What if you (or someone else) made a change in your fork?</h3>
-                        <ul>
+                        <ol>
                             <li class="fragment">
                                 <pre><code data-trim class="bash">
                                     $ git pull
                                 </code></pre>
                                 "pull" = "fetch" and "merge" for "origin master"
                             </li>
-                        </ul>
+                        </ol>
                     </section>
 
                     <section>
@@ -291,6 +291,187 @@
                 </section>
 
                 <section>
+                    <h3>(Some) issues that arise when using GitHub</h3>
+                    <br/>
+                    <h4 class="fragment">Pull Requests</h4>
+
+                    <h4 class="fragment">Licenses</h4>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Pull Requests</h2>
+                        <br/>
+                        <p class="fragment">Modern, GitHub-based version of emailing someone a <strong>patch</strong></p>
+
+                        <p class="fragment">Pull Requests (or PRs) consist of sequences of patches, based on a history of Git commits</p>
+                    </section>
+
+                    <section>
+                        <h3>Example Pull Request on GitHub</h3>
+                        <img src="./images/github-pull-request-example.png" height="500" alt="Pull request example on GitHub">
+                    </section>
+
+                    <section>
+                        <h3>How to contribute a change to someone else's repository</h3>
+                        <ol>
+                            <li class="fragment"> Fork the repo </li>
+
+                            <li class="fragment"> Clone your fork locally
+                                <pre><code data-trim class="bash">
+                                    $ git clone ...
+                                </code></pre>
+                            </li>
+                            <li class="fragment">Create a new branch for your changes/fix:
+                                <pre><code data-trim class="bash">
+                                    $ git checkout -b newfix
+                                </code></pre>
+                            </li>
+                            <li class="fragment">Commit and push your changes
+                                <pre><code data-trim class="bash">
+                                    $ git commit -am "fixes problem in upstream project"
+                                    $ git push origin newfix
+                                </code></pre>
+                            </li>
+                            <li class="fragment">Submit a Pull Request via GitHub</li>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h3>Create Pull Request</h3>
+                        <img src="./images/github-create-pull-request.png" height="500" alt="Create a Pull Request on GitHub">
+                    </section>
+
+                    <section>
+                        <h3>Submitting Pull Requests</h3>
+                        <br/>
+                        <p class="fragment">Try to submit shorter Pull Requests when possible, as they are easier to review and merge</p>
+
+                        <p class="fragment">If the project uses testing, make sure to add a new test (or modify an existing one) to reflect your change. More on tests later!</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Software Licenses & Copyright</h3>
+                        <br/>
+                        <h2 class="fragment">Important: I AM NOT A LAWYER!</h2>
+
+                        <h4 class="fragment">AKA: IANAL</h4>
+                    </section>
+
+                    <section>
+                        <h3>Copyright</h3>
+                        <br/>
+                        <p class="fragment">Facts and ideas are <strong>not copyrightable</strong>.</p>
+                        <br/><br/>
+                        <p class="fragment"><em>Expressions</em> of ideas are copyrightable.</p>
+                    </section>
+
+                    <section>
+                        <h3>Copyright Examples</h3>
+                        <br/>
+                        <p class="fragment">Game rules are not copyrightable (chess, Go, football, <em>Dungeons & Dragons</em>).</p>
+                        <p class="fragment">Expressions of game rules <em>are</em> copyrightable.</p>
+                        <img class="fragment" src="./images/dnd-handbook.jpg" height="300" alt="Dungeons & Dragons Player's Handbook">
+                    </section>
+
+                    <section>
+                        <h3>Copyright Examples 2</h3>
+                        <br/>
+                        <p class="fragment">A function that computes standard deviation of values: name choices and concept of the function are not copyrightable.</p>
+                        <br/>
+                        <p class="fragment">The <code>std()</code> code actually computes the standard deviation <em>is</em> copyrightable.</p>
+                    </section>
+
+                    <section>
+                        <h3>Basic Copyright</h3>
+                        <br/>
+                        <p class="fragment">"Right of First Publication": copyright automatically goes to the first creator of any creative work</p>
+
+                        <p class="fragment">(Even if not explicitly specified)</p>
+
+                        <p class="fragment">Consequence: if you post software to GitHub without an explicit license, then you own the copyright—even if openly and publicly visible.</p>
+
+                        <p class="fragment">By default, no one else is legally allowed to use or modify your work.</p>
+                    </section>
+
+                    <section>
+                        <h3>Software Licenses</h3>
+                        <br/>
+                        <p class="fragment"><strong>All</strong> software codes you make publicly available should be accompanied by a software license describing the terms by which others may use and/or modify your code.</p>
+                    </section>
+
+                    <section>
+                        <h3>Public Domain</h3>
+                        <br/>
+                        <p class="fragment">Alternatively, you can put work into the <em>public domain</em>: "This work has been placed in the public domain."</p>
+
+                        <p class="fragment">Free for anyone and everyone to use and modify.</p>
+
+                        <p class="fragment">Literature examples: Sherlock Holmes, Frankenstein</p>
+
+                        <p class="fragment">(There are some tricky issues internationally, however.)</p>
+                    </section>
+
+                    <section>
+                        <h3>Software Licenses</h3>
+                        <br/>
+                        <p class="fragment">Kinds of software licenses: proprietary, and free/open source (FOSS, FLOSS, OSS)</p>
+
+                        <p class="fragment"><strong>Pick an existing license. Do not create your own.</strong></p>
+                    </section>
+
+                    <section>
+                        <h3>Software Licenses</h3>
+                        <br/>
+                        <p class="fragment">FOSS categories: permissive, and "copyleft"</p>
+
+                        <p class="fragment"><strong>Permissive</strong> licenses: BSD 3-clause, MIT; allow further distribution under any license</p>
+
+                        <p class="fragment"><strong>Copyleft</strong> licenses: GPL; require modifications to be shared under the same license ("viral")
+                    </section>
+
+                    <section>
+                        <h3>https://choosealicense.com</h3>
+                        <a href="https://choosealicense.com" class="image"><img src="./images/choosealicense.com.png" height="500" alt="ChooseALicense.com"></a>
+                    </section>
+
+                    <section>
+                        <h3>Open Source Initiative licenses</h3>
+                        <a href="https://opensource.org/licenses" class="image"><img src="./images/open-source-initiative-licenses.png" height="500" alt="Open Source Initiative Licenses & Standards"></a>
+                    </section>
+
+                    <section>
+                        <h3>Which license to use?</h3>
+                        <br/>
+                        <p class="fragment">When in doubt, use a permissive license like the BSD 3-clause or MIT licenses.</p>
+                    </section>
+
+                    <section>
+                        <h3>Copyrighting other creative works: Creative Commons</h3>
+                        <br/>
+                        <ul class="fragment">
+                            <li>BY: Attribution</li>
+                            <li>SA: ShareAlike</li>
+                            <li>ND: NoDerivatives</li>
+                            <li>NC: NonCommercial</li>
+                        </ul>
+                        <p class="fragment">Licenses: CC BY, CC BY-SA, CC BY-NC, CC BY-NC-NC</p>
+                        <p class="fragment"><a href="https://creativecommons.org/share-your-work/">Choose a license</a>
+                    </section>
+
+                    <section>
+                        <h3>Beyond copyright & licenses</h3>
+
+                        <p class="fragment"><strong>Patents</strong>: cover ideas and concepts; modern issues with "patent trolls"</p>
+
+                        <p class="fragment"><strong>Trademarks</strong>: symbols that represent a business or organization</p>
+
+                        <p class="fragment"><strong>Export control</strong>: government may forbid the transfer of source code (and data, ideas) to another country or foreign national without permission</p>
+
+                        <p class="fragment"><strong>HIPAA compliance</strong>: software that deals with human patients must be anonymized</p>
+                    </section>
 
                 </section>
 
