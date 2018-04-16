@@ -46,12 +46,12 @@
 			<div class="slides">
                 <section data-markdown>
                     <textarea data-template>
-                        # Remote Version Control
-                        ### Software Development for Engineering Research</h3>
+                        ##  Remote Version Control
+                        ### Software Development for Engineering Research
 
                         ### Kyle Niemeyer. 16 April 2018
 
-                        ###ME 599, Corvallis, OR
+                        ### ME 599, Corvallis, OR
                     </textarea>
                 </section>
 
@@ -80,12 +80,18 @@
                         <h2>Repositories</h2>
 
                         <br/>
-                        <a href="https://github.com" class="image"><img src="./images/GitHub_Logo.png" height="200" alt="GitHub"></a>
-                        <a href="https://launchpad.net" class="image"><img src="./images/launchpad-logo.png" height="200" alt="Launchpad"></a>
-                        <a href="https://sourceforge.net" class="image"><img src="./images/sourceforge-logo.jpeg" height="200" alt="SourceForge"></a>
-                        <a href="https://about.gitlab.com" class="image"><img src="./images/gitlab-logo.svg" height="200" alt="GitLab"></a>
+                        <div class="floated_img">
+                            <a href="https://github.com" class="image"><img src="./images/GitHub_Logo.png" height="100" alt="GitHub"></a>
+                            &nbsp;
+                            <a href="https://launchpad.net" class="image"><img src="./images/launchpad-logo.png" height="100" alt="Launchpad"></a>
+                        </div>
+                        <div class="floated_img">
+                            <a href="https://sourceforge.net" class="image"><img src="./images/sourceforge-logo.jpeg" height="100" alt="SourceForge"></a>
+                            &nbsp;
+                            <a href="https://about.gitlab.com" class="image"><img src="./images/gitlab-logo.svg" height="100" alt="GitLab"></a>
+                        </div>
 
-                        <h3>We'll focus on GitHub</h3>
+                        <h3 class="fragment">We'll focus on GitHub.</h3>
                     </section>
 
                     <section data-markdown>
@@ -119,7 +125,7 @@
                             ## Alternatively, if starting new project, you can:
 
                             1. Create a new repo on account
-                            2. Copy (clone) repo to local computer
+                            2. Copy (clone) empty repo to local computer
                             3. Prosper!
                         </textarea>
                     </section>
@@ -156,337 +162,136 @@
                     <section>
                         <h3>Cloning a repo</h3>
 
-                        <img src="./images/github-clone-remote.png" height="500" alt="Cloning a repo from GitHub">
+                        <img src="./images/github-clone-repo.png" height="500" alt="Cloning a repo from GitHub">
                     </section>
 
                     <section>
-                        <h3>Cloning a repo</h3>
-                        <br/>
-                        <pre><code data-trim class="bash">
-                            $ git clone https://github.com/SoftwareDevEngResearch/analysis_code.git
-                        </code></pre>
-                        <br/>
-                        <pre><code data-trim class="bash">
-                            $ git clone git@github.com:SoftwareDevEngResearch/analysis_code.git
-                        </code></pre>
-                    </section>
+                        <h3 class="fragment"><strong>Clone</strong>: make local copy of any repository (Git)</h3>
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## **Clone**: make local copy of any repository (Git)
-
-                            ## **Fork**: Remote repository connected to/aware of the "upstream" repo it was cloned from
-                        </textarea>
+                        <h3 class="fragment"><strong>Fork</strong>: Remote repository connected to/aware of the "upstream" repo it was cloned from (GitHub)</h3>
                     </section>
 
                     <section>
                         <h3>Forking a repo</h3>
 
-                        <img src="./images/github-fork.png" height="500" alt="Forking a repo on GitHub">
+                        <img src="./images/github-fork.png" height="400" alt="Forking a repo on GitHub">
                     </section>
 
-
-                </section>
-
-                <section>
                     <section>
-                        <h2>Course Resources</h2>
-                        </br>
+                        <h3>Collaborative work using GitHub</h3>
+
+                        <img src="./images/github-collaborate-forks.png" height="400" alt="Collaborating with forks on GitHub">
+                    </section>
+
+                    <section>
+                        <img src="./images/github-clone-repo.png" height="500" alt="Cloning a repo from GitHub">
+
+                        <p class="fragment">How does Fran keep local repo up to date with the original?</p>
+                    </section>
+
+                    <section>
+                        <h3>Do this yourself</h3>
+                        <br/>
                         <ul>
-                          <li class="fragment">
-                            <b>Syllabus:</b>
-                            <a href="https://softwaredevengresearch.github.io/syllabus/">softwaredevengresearch.github.io/syllabus/</a>
-                          </li>
+                            <li class="fragment">
+                                Fork it: at <a href="https://github.com/SoftwareDevEngResearch/analysis_code">SoftwareDevEngResearch/analysis_code</a>, click "Fork"
+                            </li>
 
-                          <li class="fragment">
-                            <b>GitHub organization:</b> <a href="https://github.com/SoftwareDevEngResearch">github.com/SoftwareDevEngResearch</a>
-                          </li>
+                            <li class="fragment"> Clone your fork
+                        <pre><code data-trim class="bash">
+                            $ git clone https://github.com/[you]/analysis_code.git
+                        </code></pre>
+                            <p>(replace "[you]" with your username)</p>
+                            </li>
 
-                          <li class="fragment">
-                            <b>Other resources:</b>
-                            <a href="https://softwaredevengresearch.github.io/syllabus/#resources">softwaredevengresearch.github.io/syllabus/#resources</a>
-                          </li>
-
-                          <li class="fragment">
-                            <b>Gitter chat room:</b>
-                            <a href="https://gitter.im/SoftwareDevEngResearch/Lobby">https://gitter.im/SoftwareDevEngResearch/Lobby</a>
-                          </li>
+                            <li class="fragment">Create the alias "upstream" for the remote repo:
+                        <pre><code data-trim class="bash">
+                            $ git remote add upstream \
+                            https://github.com/SoftwareDevEngResearch/analysis_code.git
+                            $ git remote -v
+                        </code></pre>
+                            </li>
                         </ul>
                     </section>
 
                     <section>
-                        <h2>Textbook</h1>
+                        <h3>Fetching and merging remote content</h3>
                         <br/>
-                        <a href="http://physics.codes/" class="image"><img src="./images/effective-comp-physics.jpg" height="300" alt="Effective Computation in Physics"></a>
-
-                        <p><a href="http://physics.codes/">http://physics.codes/</a></p>
-
-                        <p>Chapters 1–6 should be review</p>
-                    </section>
-
-                    <section>
-                        <h2>Project</h2>
-                        <br/>
-                        <p>Most of your work in the class will be centered around a project developing a new software package for your research.</p>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Rest of today: version control</h2>
-
-                        <h3 class="fragment">What for?</h3>
                         <ul>
-                          <li class="fragment">Back up changing files</li>
-                          <li class="fragment">Store and access an annotated history</li>
-                          <li class="fragment">Manage merging of changes between different change sets</li>
+                            <li class="fragment"> In your cloned local repo, fetch the upstream repo history:
+                                <pre><code data-trim class="bash">
+                                    $ git fetch upstream
+                                </code></pre>
+                            </li>
+
+                            <li class="fragment"> Merge the "upstream" master branch into your master branch:
+                                <pre><code data-trim class="bash">
+                                    $ git merge upstream/master
+                                </code></pre>
+                            </li>
+
+                            <li class="fragment"> Look at the changes!
+                            </li>
                         </ul>
                     </section>
 
                     <section>
-                        <h2>Why important?</h2>
+                        <h3>Update your fork</h3>
+                        <ul>
+                            <li class="fragment"> After merging upstream history, push your work:
+                                <pre><code data-trim class="bash">
+                                    $ git push
+                                </code></pre>
+                                (this goes to "origin master")
+                            </li>
+                        </ul>
 
-                        <a href="http://phdcomics.com/comics/archive.php?comicid=1323" class="image"><img class="fragment" src="./images/phd-comics-versions.gif" height="450" alt="Comic on file versions from PhD Comics http://phdcomics.com/comics/archive.php?comicid=1323"></a>
+                        <br/><br/>
 
-                        <p class="fragment"><small><a href="http://phdcomics.com/comics/archive.php?comicid=1323">Image credit: Jorge Cham, PhD Comics</a></small></p>
+                        <h3 class="fragment">What if you (or someone else) made a change in your fork?</h3>
+                        <ul>
+                            <li class="fragment">
+                                <pre><code data-trim class="bash">
+                                    $ git pull
+                                </code></pre>
+                                "pull" = "fetch" and "merge" for "origin master"
+                            </li>
+                        </ul>
                     </section>
 
                     <section>
-                        <h2>Saving copies</h2>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code-2.py</code></p>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code-fix.py</code></p>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code-final.py</code></p>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code-final-4apr.py</code></p>
+                        <h3>What about conflicts?</h3>
+                        <br/>
+                        <p class="fragment">When fetching, merging, and/or pulling remote changes, you may encounter conflicts</p>
+
+                        <p class="fragment">To solve: just follow the directions!</p>
+
+                        <p class="fragment">(In-class example)</p>
                     </section>
 
                     <section>
-                        <h2>Git commits</h2>
-                        <p class="fragment current-visible"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                        <p class="fragment current-visible"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                        <p class="fragment current-visible"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                        <p class="fragment current-visible"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                        <p class="fragment"><img src="./images/code-file.png" height="50" style="vertical-align:middle"> <code>important_code.py</code></p>
-                    </section>
+                        <h3>Collaborating on GitHub Best Practices</h3>
 
-                    <section data-markdown>
-                        <textarea data-template>
-                            ## Types of Version Control
+                        <h4 class="fragment">For one-person projects:</h4>
+                        <ul>
+                            <li class="fragment">push and pull (to/from origin)</li>
+                            <li class="fragment">use branches, merge into master</li>
+                        </ul>
+                        <br/><br/>
 
-                            <p class="fragment">Centralized:
-                                <ul>
-                                  <li class="fragment">Concurrent Version System (cvs)</li>
-                                  <li class="fragment">Subversion (svn)</li>
-                                  <li class="fragment">Perforce (p4)</li>
-                                </ul>
-                            </p>
-
-                            <p class="fragment">Distributed:
-                                <ul>
-                                  <li class="fragment">Decentralized CVS (dcvs)</li>
-                                  <li class="fragment">mercurial (hg)</li>
-                                  <li class="fragment">bazaar (bzr)</li>
-                                  <li class="fragment"><b style="color:blue">Git (git)</b></li>
-                                </ul>
-                            </p>
-                        </textarea>
-                    </section>
-
-                    <section>
-                        <h2>Git</h2>
-
-                        <div class="fragment">
-                            <img src="./images/giant-swiss-army-knife.jpg" height="350">
-                            <blockquote cite="http://ixd.ucsd.edu/home/f16/index.php">
-                                Git is a knife whose handle is also a knife. – <a href="http://ixd.ucsd.edu/home/f16/index.php">Philip Guo</a>
-                            </blockquote>
-                        </div>
-                    </section>
-
-                    <section>
-                        <a href="https://xkcd.com/1597/" class="image"><img src="./images/xkcd-git.png" height="500" alt="If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything."></a>
-
-                        <p><small><a href="https://xkcd.com/1597/">Image credit: xkcd</a></small></p>
+                        <h4 class="fragment">For multi-person projects:</h4>
+                        <ul>
+                            <li class="fragment">Fork into a personal repo</li>
+                            <li class="fragment">Use git fetch/merge to keep updated with upstream</li>
+                            <li class="fragment">Push (and pull) to/from origin (your fork on GitHub)</li>
+                            <li class="fragment">Contribute changes via pull requests on GitHub</li>
+                        </ul>
                     </section>
 
                 </section>
 
                 <section>
-                    <section>
-                        <h2>Getting Started with Git</h2>
-                        <br/>
-                        <br/>
-                        <pre><code data-trim class="bash">
-                            $ git --help
 
-                            $ git config --global user.name "Kyle Niemeyer"
-                            $ git config --global user.email "kyle.niemeyer@oregonstate.edu"
-                            $ git config --global core.editor "vim"
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <pre><code data-trim class="bash">
-                            ~ $ mkdir analysis_code
-                            ~ $ cd analysis_code
-
-                            ~/analysis_code $ git init
-                            Initialized empty Git repository in ~/analysis_code/.git/
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <pre><code data-trim class="bash">
-                            ~/analysis_code $ ls
-                            ~/analysis_code $ ls -A
-                            .git
-
-                            ~/analysis_code $ cd .git && ls -A
-                            HEAD    config    description    hooks    index    info    logs    objects    packed-refs    refs
-                        </code></pre>
-                        <br/>
-                        <br/>
-                        <p class="fragment">Try this yourself.</p>
-                    </section>
-
-                    <section>
-                        <h2>Adding files</h2>
-                        <br/>
-
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ touch README.md
-                        </code></pre>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git add README.md
-                        </code></pre>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git status
-                        </code></pre>
-                        <br/>
-                        <br/>
-                        <p class="fragment">Try this yourself.</p>
-                    </section>
-
-                    <section>
-                        <h2>Committing changes</h2>
-
-                        <p class="fragment">Snapshot of repository = <b>revision</b></p>
-                        <br/>
-                        <p class="fragment">Committing a revision:
-                            <ul>
-                              <li class="fragment">Saves current state with a unique ID (hash)</li>
-                              <li class="fragment">Names you as author</li>
-                              <li class="fragment">Allows you to add a message</li>
-                            </ul>
-
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git commit
-                        </code></pre>
-                        <p class="fragment">Try this yourself.</p>
-                    </section>
-
-                    <section>
-                        <h2>Options to save time:</h2>
-                        <br/>
-                        <br/>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git commit -m "This is my message"
-                        </code></pre>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git commit -am "This is my message
-                                              committing all changes"
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <h2>Commit messages:</h2>
-                        <br/>
-                        <p class="fragment">Bad commit message:</p>
-                        <pre><code data-trim class="fragment bash">
-                            Fixed bug
-                        </code></pre>
-                        <p class="fragment">Good commit message:</p>
-                        <pre><code data-trim class="fragment bash">
-                            Fixed bug in mass calculation
-
-                            Due to incorrect density value, mass was being calculated
-                            orders of magnitude larger than it should. The correct value
-                            of density fixed this problem.
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <a href="https://xkcd.com/1296/" class="image"><img src="./images/xkcd-git_commit.png" height="400" alt="Merge branch 'asdfasjkfdlas/alkdjf' into sdkjfls-final"></a>
-
-                        <p><small><a href="https://xkcd.com/1296/">Image credit: xkcd</a></small></p>
-                    </section>
-
-                    <section>
-                        <h2>Viewing the history and differences</h2>
-                        <br/><br/>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git log
-                        </code></pre>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git diff
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <h2>Undoing work</h2>
-                        <br/>
-                        <p class="fragment">Un-add a file:</p>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git reset new-file.txt
-                        </code></pre>
-                        <p class="fragment">Reset repository to previous commit:</p>
-                        <pre><code data-trim data-noescape class="fragment bash">
-                            ~/analysis_code $ git reset [mode] [commit]
-                        </code></pre>
-                        <p class="fragment">Remove uncommitted changes:</p>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git checkout -- README.md
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <h2>Branches</h2>
-                        <br/>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git branch
-                            * master
-
-                            ~/analysis_code $ git branch experimental
-                            ~/analysis_code $ git branch
-                              experimental
-                            * master
-
-                            ~/analysis_code $ git branch new
-                            ~/analysis_code $ git branch -d new
-
-                            ~/analysis_code $ git checkout experimental
-                            ~/analysis_code $ git branch
-                            * experimental
-                              master
-                        </code></pre>
-                    </section>
-
-                    <section>
-                        <h2>Merging Branches</h2>
-                        <br/><br/>
-                        <pre><code data-trim class="fragment bash">
-                            ~/analysis_code $ git checkout master
-                            ~/analysis_code $ git merge experimental
-                            ~/analysis_code $ git log
-                        </code></pre>
-                    </section>
-                </section>
-
-                <section>
-                    <h3>Next time: remote version control (GitHub)</h3>
-
-                    </br>
-                    <p class="fragment">Assignment for next week: project proposal</p>
                 </section>
 
 			</div>
